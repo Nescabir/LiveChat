@@ -11,7 +11,7 @@ export const enLang = {
   discordInvite: 'To invite bot : {{link}}',
   discordBotReady: 'Ready ! Logged in as {{username}}',
 
-  howToCommand: 'howTo',
+  howToCommand: 'how-to',
   howToCommandDescription: 'How to use the bot',
 
   howToUseTitle: 'How to use it ?',

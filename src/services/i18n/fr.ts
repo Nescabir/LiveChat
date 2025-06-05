@@ -13,7 +13,7 @@ export const frLang: typeof enLang = {
   discordInvite: 'Pour inviter le bot : {{link}}',
   discordBotReady: 'En ligne ! Connecté en tant que {{username}}',
 
-  howToCommand: 'commentUtiliser',
+  howToCommand: 'comment-utiliser',
   howToCommandDescription: 'Comment utiliser le bot',
 
   howToUseTitle: "Comment m'utiliser ?",
