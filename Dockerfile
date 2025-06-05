@@ -10,7 +10,7 @@ ENV PORT=3000
 ENV DATABASE_URL="file:/usr/src/app/sqlite.db"
 
 # Add maintainer label
-LABEL maintainer="Quentin Laffont <contact@qlaffont.com>"
+LABEL maintainer="Baptiste Boulongne <contact@blgn.dev>"
 
 RUN npm install pnpm -g
 

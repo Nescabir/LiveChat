@@ -76,3 +76,4 @@ logs
 docs
 data
 sqlite.db*
+postgres_data/
