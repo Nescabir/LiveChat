@@ -13,6 +13,7 @@ import {
 import { aliveCommand } from '../components/discord/aliveCommand';
 import { clientCommand } from '../components/discord/clientCommand';
 import { helpCommand } from '../components/discord/helpCommand';
+import { howToCommand } from '../components/discord/howToCommand';
 import { infoCommand } from '../components/discord/infoCommand';
 import { setDefaultTimeCommand } from '../components/discord/setDefaultTimeCommand';
 import { setDisplayMediaFullCommand } from '../components/discord/setDisplayFullCommand';
@@ -78,6 +79,7 @@ const loadDiscordCommands = async (fastify: FastifyCustomInstance) => {
     const discordCommandsToRegister = [];
 
     const commands = [
+      howToCommand(),
       aliveCommand(),
       sendCommand(),
       talkCommand(),

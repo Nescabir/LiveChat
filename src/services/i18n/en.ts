@@ -11,6 +11,9 @@ export const enLang = {
   discordInvite: 'To invite bot : {{link}}',
   discordBotReady: 'Ready ! Logged in as {{username}}',
 
+  howToCommand: 'howTo',
+  howToCommandDescription: 'How to use the bot',
+
   howToUseTitle: 'How to use it ?',
   howToUseDescription:
     'To use it, you need first to do a `/client` to have the link to integrate to your OBS, XSplit.\n\nAfter that you can do a `/help` to get all commands that you can use to send content to the stream.',

@@ -13,6 +13,9 @@ export const frLang: typeof enLang = {
   discordInvite: 'Pour inviter le bot : {{link}}',
   discordBotReady: 'En ligne ! Connecté en tant que {{username}}',
 
+  howToCommand: 'commentUtiliser',
+  howToCommandDescription: 'Comment utiliser le bot',
+
   howToUseTitle: "Comment m'utiliser ?",
   howToUseDescription:
     "Pour m'utiliser, vous devez d'abord faire un `/client` pour avoir le lien à intégrer sur votre OBS ou XSplit.\n\nAprès, vous pouvez faire un `/help` pour obtenir toutes les commandes que vous pouvez utiliser pour envoyer du contenu sur le stream.",
