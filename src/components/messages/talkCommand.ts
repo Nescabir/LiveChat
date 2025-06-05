@@ -1,13 +1,14 @@
-import { CommandInteraction, EmbedBuilder, SlashCommandBuilder } from 'discord.js';
-import { QueueType } from '../../services/prisma/loadPrisma';
+import { CommandInteraction, EmbedBuilder, PermissionFlagsBits, SlashCommandBuilder } from 'discord.js';
 import { getContentInformationsFromUrl } from '../../services/content-utils';
 import { deleteGtts, promisedGtts, readGttsAsStream } from '../../services/gtts';
+import { QueueType } from '../../services/prisma/loadPrisma';
 import { getDurationFromGuildId } from '../../services/utils';
 
 export const talkCommand = () => ({
   data: new SlashCommandBuilder()
     .setName(rosetty.t('talkCommand')!)
     .setDescription(rosetty.t('talkCommandDescription')!)
+    .setDefaultMemberPermissions(PermissionFlagsBits.KickMembers)
     .addStringOption((option) =>
       option
         .setName(rosetty.t('talkCommandOptionVoice')!)

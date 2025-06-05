@@ -1,7 +1,7 @@
 import { startCase } from 'lodash';
 import { ClientRoutes } from '../components/client/clientRoutes';
 
-export const loadRoutes = (fastify: FastifyCustomInstance) => {
+export const loadRoutes = async (fastify: FastifyCustomInstance) => {
   const routes = [
     {
       '/client': ClientRoutes,

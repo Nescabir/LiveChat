@@ -1,4 +1,4 @@
-export const loadSocket = (fastify: FastifyCustomInstance) => {
+export const loadSocket = async (fastify: FastifyCustomInstance) => {
   logger.info(`[Socket] Socket loaded`);
   fastify.io.on('connection', (socket) => {
     logger.debug(`New connection to socketIO :  ${socket.id}`);

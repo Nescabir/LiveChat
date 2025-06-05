@@ -1,13 +1,14 @@
-import { CommandInteraction, EmbedBuilder, SlashCommandBuilder } from 'discord.js';
-import { QueueType } from '../../services/prisma/loadPrisma';
+import { CommandInteraction, EmbedBuilder, MessageFlags, PermissionFlagsBits, SlashCommandBuilder } from 'discord.js';
 import { getContentInformationsFromUrl } from '../../services/content-utils';
 import { deleteGtts, promisedGtts, readGttsAsStream } from '../../services/gtts';
+import { QueueType } from '../../services/prisma/loadPrisma';
 import { getDurationFromGuildId } from '../../services/utils';
 
 export const hideTalkCommand = () => ({
   data: new SlashCommandBuilder()
     .setName(rosetty.t('hideTalkCommand')!)
     .setDescription(rosetty.t('hideTalkCommandDescription')!)
+    .setDefaultMemberPermissions(PermissionFlagsBits.KickMembers)
     .addStringOption((option) =>
       option
         .setName(rosetty.t('hideTalkCommandOptionVoice')!)
@@ -35,7 +36,7 @@ export const hideTalkCommand = () => ({
           .setColor(0x2ecc71),
       ],
       files: [fileStream],
-      ephemeral: true,
+      flags: MessageFlags.Ephemeral,
     });
 
     const message = await interactionReply.fetch();

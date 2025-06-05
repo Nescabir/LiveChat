@@ -1,7 +1,10 @@
-import { CommandInteraction, EmbedBuilder, SlashCommandBuilder } from 'discord.js';
+import { CommandInteraction, EmbedBuilder, MessageFlags, PermissionFlagsBits, SlashCommandBuilder } from 'discord.js';
 
 export const helpCommand = () => ({
-  data: new SlashCommandBuilder().setName('help').setDescription('List of Commands'),
+  data: new SlashCommandBuilder()
+    .setName('help')
+    .setDescription('List of Commands')
+    .setDefaultMemberPermissions(PermissionFlagsBits.UseApplicationCommands),
   handler: async (interaction: CommandInteraction) => {
     await interaction.reply({
       embeds: [
@@ -9,7 +12,7 @@ export const helpCommand = () => ({
           .setTitle('Commands :')
           .setDescription(global.commandsLoaded.map((v) => `\`/${v}\``).join(', ')),
       ],
-      ephemeral: true,
+      flags: MessageFlags.Ephemeral,
     });
   },
 });

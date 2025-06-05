@@ -1,27 +1,28 @@
 import {
-  REST,
-  Client,
-  Events,
-  Collection,
-  Routes,
-  EmbedBuilder,
   ChannelType,
-  PermissionFlagsBits,
+  Client,
+  Collection,
+  EmbedBuilder,
+  Events,
   IntentsBitField,
+  MessageFlags,
+  PermissionFlagsBits,
+  REST,
+  Routes,
 } from 'discord.js';
 import { aliveCommand } from '../components/discord/aliveCommand';
-import { sendCommand } from '../components/messages/sendCommand';
-import { hideSendCommand } from '../components/messages/hidesendCommand';
-import { loadMessagesWorker } from '../components/messages/messagesWorker';
-import { talkCommand } from '../components/messages/talkCommand';
-import { hideTalkCommand } from '../components/messages/hidetalkCommand';
 import { clientCommand } from '../components/discord/clientCommand';
 import { helpCommand } from '../components/discord/helpCommand';
 import { infoCommand } from '../components/discord/infoCommand';
 import { setDefaultTimeCommand } from '../components/discord/setDefaultTimeCommand';
 import { setDisplayMediaFullCommand } from '../components/discord/setDisplayFullCommand';
 import { setMaxTimeCommand } from '../components/discord/setMaxTimeCommand';
+import { hideSendCommand } from '../components/messages/hidesendCommand';
+import { hideTalkCommand } from '../components/messages/hidetalkCommand';
+import { loadMessagesWorker } from '../components/messages/messagesWorker';
+import { sendCommand } from '../components/messages/sendCommand';
 import { stopCommand } from '../components/messages/stopCommand';
+import { talkCommand } from '../components/messages/talkCommand';
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 export const loadDiscord = async (fastify: FastifyCustomInstance) => {
@@ -137,7 +138,7 @@ const loadDiscordCommandsHandler = () => {
               .setDescription(rosetty.t('commandError')!)
               .setColor(0xe74c3c),
           ],
-          ephemeral: true,
+          flags: MessageFlags.Ephemeral,
         });
       } else {
         await interaction.reply({
@@ -147,7 +148,7 @@ const loadDiscordCommandsHandler = () => {
               .setDescription(rosetty.t('commandError')!)
               .setColor(0xe74c3c),
           ],
-          ephemeral: true,
+          flags: MessageFlags.Ephemeral,
         });
       }
     }

@@ -1,12 +1,13 @@
-import { CommandInteraction, EmbedBuilder, SlashCommandBuilder } from 'discord.js';
-import { QueueType } from '../../services/prisma/loadPrisma';
+import { CommandInteraction, EmbedBuilder, MessageFlags, PermissionFlagsBits, SlashCommandBuilder } from 'discord.js';
 import { getContentInformationsFromUrl } from '../../services/content-utils';
+import { QueueType } from '../../services/prisma/loadPrisma';
 import { getDisplayMediaFullFromGuildId, getDurationFromGuildId } from '../../services/utils';
 
 export const hideSendCommand = () => ({
   data: new SlashCommandBuilder()
     .setName(rosetty.t('hideSendCommand')!)
     .setDescription(rosetty.t('hideSendCommandDescription')!)
+    .setDefaultMemberPermissions(PermissionFlagsBits.KickMembers)
     .addStringOption((option) =>
       option
         .setName(rosetty.t('hideSendCommandOptionURL')!)
@@ -72,7 +73,7 @@ export const hideSendCommand = () => ({
           .setDescription(rosetty.t('hideSendCommandAnswer')!)
           .setColor(0x2ecc71),
       ],
-      ephemeral: true,
+      flags: MessageFlags.Ephemeral,
     });
   },
 });

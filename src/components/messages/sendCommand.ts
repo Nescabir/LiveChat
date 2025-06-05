@@ -1,12 +1,13 @@
-import { CommandInteraction, EmbedBuilder, SlashCommandBuilder } from 'discord.js';
-import { QueueType } from '../../services/prisma/loadPrisma';
+import { CommandInteraction, EmbedBuilder, PermissionFlagsBits, SlashCommandBuilder } from 'discord.js';
 import { getContentInformationsFromUrl } from '../../services/content-utils';
+import { QueueType } from '../../services/prisma/loadPrisma';
 import { getDisplayMediaFullFromGuildId, getDurationFromGuildId } from '../../services/utils';
 
 export const sendCommand = () => ({
   data: new SlashCommandBuilder()
     .setName(rosetty.t('sendCommand')!)
     .setDescription(rosetty.t('sendCommandDescription')!)
+    .setDefaultMemberPermissions(PermissionFlagsBits.KickMembers)
     .addStringOption((option) =>
       option.setName(rosetty.t('sendCommandOptionURL')!).setDescription(rosetty.t('sendCommandOptionURLDescription')!),
     )
